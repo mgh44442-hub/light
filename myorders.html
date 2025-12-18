@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>طلباتي</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="logo">TikTok Free Services</div>
+    <select onchange="goPage(this.value)">
+        <option value="">التنقل</option>
+        <option value="index.html">الرئيسية</option>
+        <option value="order.html">طلب خدمة</option>
+        <option value="myorders.html">طلباتي</option>
+        <option value="admin.html">الأدمن</option>
+    </select>
+</header>
+
+<!-- ===== CONTAINER ===== -->
+<div class="container">
+    <h1>طلباتي</h1>
+    <div id="orders"></div>
+</div>
+
+<!-- ===== SCRIPT لعرض الطلبات ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const box = document.getElementById("orders");
+    box.innerHTML = "";
+
+    if(orders.length === 0){
+        box.innerHTML = "<p>لا يوجد طلبات حتى الآن</p>";
+        return;
+    }
+
+    orders.forEach(o => {
+        const div = document.createElement("div");
+        div.className = "box";
+        div.innerHTML = `
+            <p>الخدمة: ${o.service}</p>
+            <p>الكمية: ${o.qty}</p>
+            <p>الحالة: <span class="${o.status}">${o.status}</span></p>
+            <p>الرابط: <a href="${o.link}" target="_blank">${o.link}</a></p>
+        `;
+        box.appendChild(div);
+    });
+
+});
+</script>
+
+</body>
+</html>

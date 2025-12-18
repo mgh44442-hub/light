@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>صفحة الأدمن</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">TikTok Free Services</div>
+    <select onchange="goPage(this.value)">
+        <option value="">التنقل</option>
+        <option value="index.html">الرئيسية</option>
+        <option value="order.html">طلب خدمة</option>
+        <option value="myorders.html">طلباتي</option>
+        <option value="admin.html">الأدمن</option>
+    </select>
+</header>
+
+<div class="container">
+
+    <!-- تسجيل الدخول -->
+    <div id="lock" class="admin-lock">
+        <input id="adminPass" type="password" placeholder="Admin Password">
+        <button onclick="adminLogin()">دخول</button>
+    </div>
+
+    <!-- لوحة الطلبات -->
+    <div id="adminOrders"></div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",loadAdmin);
+</script>
+
+</body>
+</html>

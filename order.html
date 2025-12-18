@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>طلب خدمة</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">TikTok Free Services</div>
+    <select onchange="goPage(this.value)">
+        <option value="">التنقل</option>
+        <option value="index.html">الرئيسية</option>
+        <option value="order.html">طلب خدمة</option>
+        <option value="myorders.html">طلباتي</option>
+        <option value="admin.html">الأدمن</option>
+    </select>
+</header>
+
+<div class="container">
+    <div class="box">
+        <h1>طلب خدمة</h1>
+        <form onsubmit="addOrder(event)">
+            <input id="link" type="text" placeholder="ضع رابط تيك توك هنا" required>
+            <select id="service" required>
+                <option value="">اختر الخدمة</option>
+                <option value="favorites">مفضلات</option>
+                <option value="likes">لايكات</option>
+                <option value="views">مشاهدات</option>
+                <option value="followers">متابعين</option>
+            </select>
+            <input id="qty" type="number" placeholder="الكمية" min="1" required>
+            <button type="submit">إرسال الطلب</button>
+            <p id="msg"></p>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

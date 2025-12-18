@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>الرئيسية</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">TikTok Free Services</div>
+    <select onchange="goPage(this.value)">
+        <option value="">التنقل</option>
+        <option value="index.html">الرئيسية</option>
+        <option value="order.html">طلب خدمة</option>
+        <option value="myorders.html">طلباتي</option>
+        <option value="admin.html">الأدمن</option>
+    </select>
+</header>
+
+<div class="container">
+    <div class="box">
+        <h1>شرح الاستخدام</h1>
+        <p>1️⃣ اختر الخدمة</p>
+        <p>2️⃣ ضع رابط تيك توك فقط</p>
+        <p>3️⃣ التزم بالحدود المسموح بها لكل خدمة</p>
+    </div>
+
+    <div class="box">
+        <h2>حدود الخدمات</h2>
+        <table>
+            <tr><th>الخدمة</th><th>الحد الأقصى</th><th>المدة</th></tr>
+            <tr><td>مفضلات</td><td>200</td><td>كل ساعة</td></tr>
+            <tr><td>لايكات</td><td>500</td><td>كل 12 ساعة</td></tr>
+            <tr><td>مشاهدات</td><td>1000</td><td>كل 30 دقيقة</td></tr>
+            <tr><td>متابعين</td><td>100</td><td>كل 20 ساعة</td></tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
