@@ -2,12 +2,19 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Tahoma, Arial;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+/* ====== GLOBAL FIX ====== */
+html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
 }
 
 body{
     background:#f4f6f8;
-    padding-top:70px;
+    padding-top:60px; /* مساوي لارتفاع الهيدر */
 }
 
 /* ====== HEADER ====== */
@@ -22,7 +29,7 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 20px;
+    padding:0 15px;
     z-index:999;
 }
 
@@ -41,20 +48,43 @@ header select{
 
 /* ====== CONTAINER ====== */
 .container{
+    width:100%;
     max-width:900px;
     margin:auto;
-    padding:20px;
+    padding:15px;
 }
 
 /* ====== BOX ====== */
 .box{
     background:#fff;
-    padding:20px;
-    border-radius:10px;
+    padding:15px;
+    border-radius:12px;
     margin-bottom:20px;
-    box-shadow:0 5px 10px rgba(0,0,0,.08);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
 }
 
+.box:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.box p{
+    margin-bottom:10px;
+    font-size:16px;
+    word-break: break-word;
+}
+
+.box a{
+    color:#ff385c;
+    text-decoration:none;
+}
+
+.box a:hover{
+    text-decoration:underline;
+}
+
+/* ====== HEADINGS ====== */
 h1,h2{
     margin-bottom:15px;
     color:#111;
@@ -65,16 +95,20 @@ p{
     color:#333;
 }
 
-/* ====== TABLE ====== */
+/* ====== TABLE (MOBILE SAFE) ====== */
 table{
     width:100%;
     border-collapse:collapse;
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
 }
 
 table th, table td{
     border:1px solid #ddd;
     padding:10px;
     text-align:center;
+    font-size:14px;
 }
 
 table th{
@@ -83,7 +117,9 @@ table th{
 }
 
 /* ====== FORM ====== */
-form input, form select, form button{
+form input,
+form select,
+form button{
     width:100%;
     padding:12px;
     margin-bottom:10px;
@@ -103,13 +139,13 @@ form button:hover{
 }
 
 /* ====== STATUS ====== */
-.pending{ color:orange; font-weight:bold; }
-.completed{ color:green; font-weight:bold; }
+.pending{ color:#ff9800; font-weight:bold; }
+.completed{ color:#4caf50; font-weight:bold; }
 
 /* ====== ADMIN LOGIN ====== */
 .admin-lock{
     max-width:400px;
-    margin:100px auto 0 auto;
+    margin:100px auto 0;
     background:#fff;
     padding:30px;
     border-radius:12px;
@@ -118,7 +154,7 @@ form button:hover{
 }
 
 .admin-lock input{
-    width:90%;
+    width:100%;
     padding:12px;
     margin:12px 0;
     border-radius:8px;
@@ -127,7 +163,7 @@ form button:hover{
 }
 
 .admin-lock button{
-    width:95%;
+    width:100%;
     padding:12px;
     border:none;
     border-radius:8px;
@@ -144,80 +180,46 @@ form button:hover{
     transform:translateY(-2px);
 }
 
+/* ====== RESPONSIVE ====== */
+@media (max-width:768px){
+    body{
+        padding-top:60px;
+    }
+
+    .container{
+        padding:10px;
+    }
+
+    header .logo{
+        font-size:18px;
+    }
+
+    header select{
+        padding:6px 10px;
+    }
+
+    table th, table td{
+        font-size:13px;
+        padding:8px;
+    }
+}
+
 @media (max-width:500px){
+    h1,h2{
+        font-size:18px;
+    }
+
+    .box p{
+        font-size:14px;
+    }
+
+    table th, table td{
+        font-size:12px;
+        padding:6px;
+    }
+
     .admin-lock{
-        margin:80px 10px 0 10px;
+        margin:80px 10px 0;
         padding:20px;
     }
-    .admin-lock input, .admin-lock button{
-        width:100%;
-        font-size:15px;
-    }
 }
-
-
-/* ====== BOX ORDERS ====== */
-.box{
-    background:#fff;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.box:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
-}
-
-.box p{
-    margin-bottom:10px;
-    font-size:16px;
-}
-
-.box a{
-    color:#ff385c;
-    text-decoration:none;
-}
-
-.box a:hover{
-    text-decoration:underline;
-}
-
-/* ====== STATUS ====== */
-.pending{
-    color:#ff9800;
-    font-weight:bold;
-}
-
-.completed{
-    color:#4caf50;
-    font-weight:bold;
-}
-
-/* ====== ADMIN BUTTON ====== */
-.box button{
-    padding:10px 15px;
-    border:none;
-    border-radius:8px;
-    background:#111;
-    color:#fff;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.box button:hover{
-    background:#333;
-}
-
-/* ====== STATUS COLORS BUTTON ====== */
-.completed + button{
-    background:#4caf50;
-}
-
-.pending + button{
-    background:#ff9800;
-}
-
